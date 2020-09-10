@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class lazy="false" name="cn.gzh.domain.Manage" table="product">
+  <id column="pid" name="pid">
+   <generator class="native"/>
+  </id>
+  <property column="pname" generated="never" lazy="false" name="pname"/>
+  <property column="market_price" generated="never" lazy="false" name="market_price"/>
+  <property column="shop_price" generated="never" lazy="false" name="shop_price"/>
+  <property column="image" generated="never" lazy="false" name="image"/>
+  <property column="pdesc" generated="never" lazy="false" name="pdesc"/>
+  <property column="is_hot" generated="never" lazy="false" name="is_hot"/>
+  <property column="pdate" generated="never" lazy="false" name="pdate"/>
+  <property column="num" generated="never" lazy="false" name="num"/>
+<property column="csid" generated="never" lazy="false" name="csid"/>
+  
+  
+ </class>
+</hibernate-mapping>

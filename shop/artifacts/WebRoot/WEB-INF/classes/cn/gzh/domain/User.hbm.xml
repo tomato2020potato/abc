@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="cn.gzh.domain.User" table="user">
+  <id column="uid" length="20" name="uid">
+   <generator class="native"/>
+  </id>
+  <property column="loginName" generated="never" lazy="false"
+   length="20" name="loginName"/>
+  <property column="password" generated="never" lazy="false" length="20" name="password"/>
+  <property column="userName" generated="never" lazy="false" length="20" name="userName"/>
+  <property column="email" generated="never" lazy="false" length="30" name="email"/>
+  <property column="sex" generated="never" lazy="false" length="5" name="sex"/>
+  <property column="state" generated="never" lazy="false" length="1" name="state"/>
+  <property column="code" generated="never" lazy="false" length="100" name="code"/>
+  <set lazy="false" name="addresses" order-by="aid" sort="unsorted">
+   <key column="uid"/>
+   <one-to-many class="cn.gzh.domain.Address"/>
+  </set>
+  <set lazy="false" name="orders" order-by="oid desc" sort="unsorted">
+   <key column="uid"/>
+   <one-to-many class="cn.gzh.domain.Order"/>
+  </set>
+  <set lazy="false" name="favorites" sort="unsorted" table="user_product">
+   <key column="uno"/>
+   <many-to-many class="cn.gzh.domain.Product" column="pno" unique="false"/>
+  </set>
+  <property column="oldpassword" name="oldpassword" length="20"/>
+ </class>
+</hibernate-mapping>
